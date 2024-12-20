@@ -7,6 +7,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/MotionPathPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js"></script>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -27,13 +30,23 @@
     <h1>Lapin Animation</h1>
     <h1>Lapin Animation</h1>
     <h1>Lapin Animation</h1>
+
+    <div class="counter">Chiffre clé : <span class="counterup">1500</span></div>
+
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".counterup").counterUp({
+          delay: 10, // délai entre chaque incrément en ms
+          time: 1000, // durée totale de l'animation en ms
+        });
+      });
+    </script>
+
     <div class="black"></div>
 
     <script>
-      // Enregistre les plugins GSAP
       gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
-      // Timeline avec GSAP
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#scroll-container", // Conteneur d'animation
@@ -45,7 +58,7 @@
         },
       });
 
-      // Chemin et transformations
+      // Chemin
       tl.to("#myImage", {
         motionPath: {
           path: [

@@ -36,3 +36,17 @@ h1 {
   background-color: black;
   height: 100vh;
 }
+
+.counter {
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+  color: black;
+}
+
+.counter span {
+  display: inline-block;
+  color: black;
+  font-size: 64px;
+  transition: transform 0.3s ease;
+}
