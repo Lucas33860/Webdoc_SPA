@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vidéo Plein Écran</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <div class="video-container">
+      <video autoplay loop controls muted>
+        <!-- Utilisez un chemin valide vers votre vidéo -->
+        <source
+          src="audio/ROSÉ - toxic till the end (official music video).mp4"
+          type="video/mp4"
+        />
+        Votre navigateur ne supporte pas la lecture des vidéos.
+      </video>
+      <div class="overlay-text" id="overlay-text" style="display: none">
+        <h1>Clip Musical de Rosé</h1>
+      </div>
+      <div class="overlay-text-2" id="overlay-text-2" style="display: none">
+        <h1>Il est pas gentil le monsieur</h1>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var video = document.querySelector("video");
+        var overlayText = document.getElementById("overlay-text");
+        var overlayText2 = document.getElementById("overlay-text-2");
+
+        if (video) {
+          video.addEventListener("timeupdate", function () {
+            if (video.currentTime >= 0 && video.currentTime < 10) {
+              overlayText.style.display = "block";
+            } else {
+              overlayText.style.display = "none";
+            }
+            if (video.currentTime >= 60 && video.currentTime < 70) {
+              overlayText2.style.display = "block";
+            } else {
+              overlayText2.style.display = "none";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
